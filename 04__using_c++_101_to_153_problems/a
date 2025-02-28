@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for file in *; do
+    if [[ -f "$file" && "$file" =~ ^([0-9]+)_(c|cpp)_(.*) ]]; then
+        new_name="${BASH_REMATCH[1]}_${BASH_REMATCH[3]}"
+        mv -v -- "$file" "$new_name"
+    fi
+done
